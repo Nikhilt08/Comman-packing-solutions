@@ -631,3 +631,28 @@ text-align:center;
 .cta-btn.whatsapp{
 background:#25D366;
 }
+.products {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    width: 250px;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-card p {
+    margin-top: 10px;
+    font-weight: bold;
+}
