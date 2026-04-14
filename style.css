@@ -483,3 +483,151 @@ text-decoration: none;
 box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 z-index: 999;
 }
+.trust-badges{
+display:flex;
+gap:20px;
+justify-content:center;
+margin-top:30px;
+flex-wrap:wrap;
+font-weight:600;
+}
+
+.products-preview{
+padding:60px 20px;
+text-align:center;
+}
+
+.product-grid{
+display:flex;
+gap:25px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.product-card{
+width:220px;
+background:#fff;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-card img{
+width:100%;
+border-radius:8px;
+}
+
+.why-us{
+background:#f7f7f7;
+padding:60px 20px;
+text-align:center;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+font-weight:600;
+}
+
+.floating-whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+font-size:28px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+.products-hero{
+padding:60px 20px;
+background:#eef3f8;
+text-align:center;
+}
+
+.product-section{
+display:flex;
+align-items:center;
+gap:40px;
+padding:60px 10%;
+flex-wrap:wrap;
+}
+
+.product-section.reverse{
+flex-direction:row-reverse;
+}
+
+.product-image img{
+width:420px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.1);
+}
+
+.product-details{
+max-width:500px;
+}
+
+.product-details ul{
+margin-top:10px;
+line-height:1.8;
+}
+
+.product-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 22px;
+background:#2f7de1;
+color:white;
+border-radius:6px;
+text-decoration:none;
+}
+
+.industries{
+background:#f7f7f7;
+padding:60px 20px;
+text-align:center;
+}
+
+.industry-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+max-width:800px;
+margin:auto;
+font-weight:600;
+}
+
+.cta-section{
+text-align:center;
+padding:60px 20px;
+}
+
+.cta-section h2{
+margin-bottom:15px;
+}
+
+.cta-section p{
+margin-bottom:25px;
+}
+
+.cta-btn{
+display:inline-block;
+padding:14px 30px;
+background:#2f7de1;
+color:white;
+border-radius:8px;
+margin:10px;
+text-decoration:none;
+font-weight:600;
+min-width:160px;
+text-align:center;
+}
+
+.cta-btn.whatsapp{
+background:#25D366;
+}
