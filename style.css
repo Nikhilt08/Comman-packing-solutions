@@ -3,14 +3,21 @@
 ========================= */
 
 :root {
-    --primary-blue: #0b4da2;
-    --dark-blue: #083b7a;
-    --secondary-green: #2e7d32;
-    --bg-light: #f5f7fa;
-    --text-dark: #2c2c2c;
-    --text-muted: #555;
+    --primary: #4a90e2;
+    --secondary: #50e3c2;
+    --accent: #f5a623;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+    --muted: #7f8c8d;
+    --white: #ffffff;
 }
 
+.logo-img {
+    height: 55px;
+    width: 55px;        /* make width equal to height */
+    border-radius: 75%; /* makes it perfectly circular */
+    object-fit: cover;  /* prevents distortion */
+}
 /* =========================
    GLOBAL RESET
 ========================= */
@@ -23,8 +30,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: var(--bg-light);
-    color: var(--text-dark);
+    background: var(--light);
+    color: var(--dark);
     line-height: 1.6;
 }
 
@@ -46,13 +53,87 @@ body {
 ========================= */
 
 header {
-    background: var(--primary-blue);
+    background: var(--primary);
     padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+/* hide close button by default */
+.close-btn {
+    display: none;
+}
 
+/* show close button only when menu is open */
+nav.active .close-btn {
+    display: block;
+}
+
+/* hide hamburger on desktop */
+.menu-toggle {
+    display: none;
+}
+nav {
+    display: flex;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+    /* show hamburger */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* hide menu initially */
+    nav {
+        display: none;
+        flex-direction: column;
+        background: white;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+
+    /* show menu when clicked */
+    nav.active {
+        display: flex;
+    }
+
+    /* hide close button initially */
+    .close-btn {
+        display: none;
+    }
+
+    /* show close button only after opening */
+    nav.active .close-btn {
+        display: block;
+        text-align: right;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #navMenu a {
+        color: #0b4da2 !important;  /* force visible text */
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    #navMenu a:hover {
+        color: #ff8c00;
+    }
+
+}
 /* Logo */
 .logo-container {
     display: flex;
@@ -88,7 +169,7 @@ nav a:hover {
 ========================= */
 
 .hero {
-    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: #ffffff;
     padding: 90px 20px;
     text-align: center;
@@ -104,20 +185,45 @@ nav a:hover {
     margin-bottom: 30px;
 }
 
-/* Button */
 .btn {
-    background: var(--secondary-green);
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 4px;
+    display: inline-block;
+    padding: 14px 28px;
+    margin: 8px;
+    border-radius: 40px;
+    font-weight: 600;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
+/* Hover effect */
 .btn:hover {
-    background: #256428;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #ff7a00, #ff9800);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
 /* =========================
    CONTENT SECTIONS
 ========================= */
@@ -129,7 +235,7 @@ nav a:hover {
 }
 
 .content h2 {
-    color: var(--primary-blue);
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
@@ -145,7 +251,7 @@ nav a:hover {
 
 .features-section h2 {
     margin-bottom: 40px;
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .features {
@@ -155,10 +261,22 @@ nav a:hover {
 }
 
 .box {
-    background: #ffffff;
+    background: var(--white);
     padding: 30px;
-    border-top: 4px solid var(--secondary-green);
+    border-top: 4px solid var(--accent);
     box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.box:nth-child(2) {
+    border-top-color: var(--secondary);
+}
+
+.box:nth-child(3) {
+    border-top-color: var(--primary);
+}
+
+.box:nth-child(4) {
+    border-top-color: var(--accent);
 }
 
 /* =========================
@@ -170,16 +288,20 @@ nav a:hover {
     align-items: center;
     gap: 60px;
     padding: 90px 60px;
-    background: #3a9de0;
+    background: var(--light);
 }
 
 /* Alternate background */
 .product-section:nth-child(even) {
-    background: var(--bg-light);
+    background: var(--white);
 }
 
 /* Automatic reverse for alternate layout */
 .product-section:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+.product-section.reverse {
     flex-direction: row-reverse;
 }
 
@@ -188,12 +310,12 @@ nav a:hover {
 }
 
 .product-text h2 {
-    color: var(--primary-blue);
+    color: var(--primary);
     margin-bottom: 15px;
 }
 
 .product-text p {
-    color: var(--text-muted);
+    color: var(--muted);
     margin-bottom: 10px;
 }
 
@@ -213,7 +335,7 @@ nav a:hover {
 ========================= */
 
 .contact-hero {
-    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: #ffffff;
     text-align: center;
     padding: 80px 20px;
@@ -240,7 +362,7 @@ nav a:hover {
 .contact-form h2 {
     font-size: 26px;
     margin-bottom: 20px;
-    color: var(--primary-blue);
+    color: var(--primary);
 }
 
 .contact-details p {
@@ -249,7 +371,7 @@ nav a:hover {
 }
 
 .contact-details a {
-    color: var(--primary-blue);
+    color: var(--primary);
     font-weight: 600;
     text-decoration: none;
 }
@@ -272,7 +394,7 @@ nav a:hover {
 }
 
 .contact-form button {
-    background: var(--secondary-green);
+    background: var(--accent);
     color: #fff;
     padding: 14px 30px;
     border: none;
@@ -281,7 +403,7 @@ nav a:hover {
 }
 
 .contact-form button:hover {
-    background: #256428;
+    background: #d4880a;
 }
 
 /* =========================
@@ -289,7 +411,7 @@ nav a:hover {
 ========================= */
 
 footer {
-    background: var(--primary-blue);
+    background: var(--dark);
     color: #ffffff;
     text-align: center;
     padding: 25px;
@@ -347,4 +469,17 @@ footer {
     .contact-hero h1 {
         font-size: 28px;
     }
+}
+.whatsapp-float {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: #25d366;
+color: white;
+padding: 14px 18px;
+border-radius: 50px;
+font-weight: bold;
+text-decoration: none;
+box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+z-index: 999;
 }
