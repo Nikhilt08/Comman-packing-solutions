@@ -71,7 +71,13 @@ nav.active .close-btn {
 
 /* hide hamburger on desktop */
 .menu-toggle {
-    display: none;
+display: none;
+position: absolute;
+right: 20px;
+top: 20px;
+font-size: 28px;
+color: white;
+cursor: pointer;
 }
 nav {
     display: flex;
@@ -80,44 +86,58 @@ nav {
 /* MOBILE ONLY */
 @media (max-width: 768px) {
 
-    /* show hamburger */
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        font-size: 28px;
-        color: white;
-        cursor: pointer;
-    }
+/* SHOW hamburger */
+.menu-toggle {
+display: block;
+position: absolute;
+right: 20px;
+top: 20px;
+font-size: 28px;
+color: white;
+cursor: pointer;
+z-index: 1001;
+}
 
-    /* hide menu initially */
-    nav {
-        display: none;
-        flex-direction: column;
-        background: white;
-        padding: 15px;
-        margin-top: 10px;
-        border-radius: 8px;
-    }
+/* MOBILE MENU PANEL */
+#navMenu {
+position: fixed;
+top: 0;
+right: -260px;
+width: 250px;
+height: 100%;
+background: white;
+flex-direction: column;
+padding: 20px;
+transition: 0.3s ease;
+box-shadow: -2px 0 12px rgba(0,0,0,0.2);
+z-index: 1000;
+}
 
-    /* show menu when clicked */
-    nav.active {
-        display: flex;
-    }
+/* SHOW MENU WHEN ACTIVE */
+#navMenu.active {
+right: 0;
+}
 
-    /* hide close button initially */
-    .close-btn {
-        display: none;
-    }
+/* CLOSE BUTTON */
+.close-btn {
+display: block;
+text-align: right;
+font-size: 24px;
+cursor: pointer;
+margin-bottom: 20px;
+}
 
-    /* show close button only after opening */
-    nav.active .close-btn {
-        display: block;
-        text-align: right;
-        font-size: 22px;
-        cursor: pointer;
-    }
+/* MENU LINKS */
+#navMenu a {
+color: #0b4da2;
+font-weight: 600;
+margin-bottom: 15px;
+text-decoration: none;
+}
+
+#navMenu a:hover {
+color: #ff8c00;
+}
 
 }
 
